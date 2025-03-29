@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14
+    commands:
+      - echo "Installing dependencies..."
+  build:
+    commands:
+      - echo "Building the web application..."
+      - mkdir -p /tmp/artifacts
+      - cp -r . /tmp/artifacts/
+  post_build:
+    commands:
+      - echo "Build complete."
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: /tmp/artifacts
